@@ -13,21 +13,34 @@
     <title>Forecast Application</title>
   </head>
   <body>
-    <div class="main-objects">
+    <div class="all-objects">
       <header>
-        <input type="search" placeholder="Enter city name..." required />
-        <input type="submit" value="Search" />
+        <form class="search-form" action="">
+          <input
+            type="search"
+            placeholder="Enter city name..."
+            required
+            class="sf-input"
+          />
+          <input type="submit" value="Search" class="sf-button" />
+        </form>
       </header>
       <main>
-        <div>
-          <h1>Tehran</h1>
-          <p>
-            Monday 22:39, scattered clouds
-            <br />
-            Humidity: 56%, Wind: 3.13 km/h
-          </p>
+        <div class="wa-data">
+          <div>
+            <h1 class="city-name">Tehran</h1>
+            <p class="details">
+              Monday 22:39, scattered clouds
+              <br />
+              Humidity: <span>56%</span>, Wind: <span>3.13 km/h</span>
+            </p>
+          </div>
+          <div class="wrapper">
+            <div class="icon">☀️</div>
+            <div class="temperature">23</div>
+            <div class="unit">°C</div>
+          </div>
         </div>
-        <div>☀️23°C</div>
       </main>
       <footer>
         This application has been writed by
@@ -44,7 +57,7 @@
         and hosted on
         <a href="https://weather-application-fateme.vercel.app/" target="_blank"
           >Vercel</a
-        >
+        >.
       </footer>
     </div>
   </body>

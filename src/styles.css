@@ -30,6 +30,7 @@ header {
   width: 70%;
   padding: 10px 15px;
   font-size: 15px;
+  border: 1px solid rgb(75, 104, 128);
 }
 
 .sf-button {
@@ -40,6 +41,14 @@ header {
   padding: 10px 15px;
   font-size: 15px;
   margin-left: 10px;
+  border: 1px solid #000;
+}
+
+.sf-button:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: rgb(97, 125, 148);
+  border: 1px solid #fff;
 }
 
 .wa-data {
@@ -66,6 +75,12 @@ header {
   font-weight: 500;
   color: hsl(209, 82%, 34%);
 }
+
+.commas {
+  font-weight: 700;
+  color: #000;
+}
+
 .temperature {
   font-size: 36px;
   line-height: 60px;

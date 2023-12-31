@@ -3,40 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Playpen+Sans:wght@200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
     <title>Forecast Application</title>
   </head>
   <body>
-    <header>
-      <input type="search" placeholder="Enter city name..." required />
-      <input type="submit" value="Search" />
-    </header>
-    <main>
-      <div>
-        <h1>Tehran</h1>
-        <p>
-          Monday 22:39, scattered clouds
-          <br />
-          Humidity: 56%, Wind: 3.13 km/h
-        </p>
-      </div>
-      <div>☀️23°C</div>
-    </main>
-    <footer>
-      This application has been writed by
-      <a
-        href="https://github.com/Fateme-Ghasemi?tab=repositories"
-        target="_blank"
-        >Fateme Ghasemi</a
-      >, published on
-      <a
-        href="https://github.com/Fateme-Ghasemi/Weather-Application"
-        target="_blank"
-        >GitHub</a
-      >
-      and hosted on
-      <a href="https://weather-application-fateme.vercel.app/" target="_blank"
-        >Vercel</a
-      >
-    </footer>
+    <div class="main-objects">
+      <header>
+        <input type="search" placeholder="Enter city name..." required />
+        <input type="submit" value="Search" />
+      </header>
+      <main>
+        <div>
+          <h1>Tehran</h1>
+          <p>
+            Monday 22:39, scattered clouds
+            <br />
+            Humidity: 56%, Wind: 3.13 km/h
+          </p>
+        </div>
+        <div>☀️23°C</div>
+      </main>
+      <footer>
+        This application has been writed by
+        <a
+          href="https://github.com/Fateme-Ghasemi?tab=repositories"
+          target="_blank"
+          >Fateme Ghasemi</a
+        >, published on
+        <a
+          href="https://github.com/Fateme-Ghasemi/Weather-Application"
+          target="_blank"
+          >GitHub</a
+        >
+        and hosted on
+        <a href="https://weather-application-fateme.vercel.app/" target="_blank"
+          >Vercel</a
+        >
+      </footer>
+    </div>
   </body>
 </html>

@@ -1,0 +1,14 @@
+body {
+  font-family: "DM Mono", monospace;
+  font-family: "Playpen Sans", cursive;
+  background-color: #f9f7fe;
+}
+
+.main-objects {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #fff;
+  box-shadow: 2px 20px 30px rgba(130, 147, 161, 0.8);
+  border-radius: 15px;
+}

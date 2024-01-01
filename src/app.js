@@ -20,14 +20,13 @@ function showTemperature(response) {
   let description = response.data.condition.description;
   let currentConditionValue = document.querySelector("#condition");
   currentConditionValue.innerHTML = `${nameFormat(description)}`;
+
+  let icon_url = response.data.condition.icon_url;
+  let currentIconValue = document.querySelector("#icon");
+  currentIconValue.innerHTML = `<img src="${icon_url}" />`;
 }
 
-function search(event) {
-  event.preventDefault();
-  let searchInputElement = document.querySelector("#sf-input");
-  searchInputElement = nameFormat(searchInputElement.value);
-  //console.log(searchInputElement);
-
+function apiCitySearch(searchInputElement) {
   let cityElement = document.querySelector("#city-name");
   cityElement.innerHTML = searchInputElement;
 
@@ -36,6 +35,14 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInputElement}&key=${apiKey}&units=${unit}`;
 
   axios.get(apiUrl).then(showTemperature);
+}
+
+function search(event) {
+  event.preventDefault();
+  let searchInputElement = document.querySelector("#sf-input");
+  searchInputElement = nameFormat(searchInputElement.value);
+
+  apiCitySearch(searchInputElement);
 }
 
 function formatDate(date) {
@@ -64,6 +71,8 @@ function formatDate(date) {
   let formattedDay = days[day];
   return [formattedDay, hours, minutes];
 }
+
+apiCitySearch("Paris");
 
 let searchFormElement = document.querySelector("#search-form");
 console.log(searchFormElement);

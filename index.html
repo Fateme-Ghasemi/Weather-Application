@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,12 +16,13 @@
   <body>
     <div class="all-objects">
       <header>
-        <form class="search-form" action="">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter city name..."
             required
             class="sf-input"
+            id="sf-input"
           />
           <input type="submit" value="Search" class="sf-button" />
         </form>
@@ -28,19 +30,24 @@
       <main>
         <div class="wa-data">
           <div>
-            <h1 class="city-name">Tehran</h1>
+            <h1 class="city-name" id="city-name">Tehran</h1>
             <p class="details">
-              Monday <span>22</span><strong class="commas">:</strong
-              ><span>39</span><strong class="commas">,</strong> Scattered Clouds
+              <span id="day">Monday</span>
+              <span class="blue" id="hours">22</span
+              ><strong class="commas">:</strong
+              ><span class="blue" id="minutes">39</span
+              ><strong class="commas">,</strong>
+              <span id="condition">Scattered Clouds</span>
               <br />
-              Humidity <span>56%</span><strong class="commas">,</strong> Wind
-              <span>3.13 km/h</span>
+              Humidity <span class="blue" id="humidity">56%</span
+              ><strong class="commas">,</strong> Wind
+              <span class="blue" id="wind-speed">3.13 km/h</span>
             </p>
           </div>
           <div class="wrapper">
-            <div class="icon">☀️</div>
-            <div class="temperature">23</div>
-            <div class="unit">°C</div>
+            <div class="icon" id="icon">☀️</div>
+            <div class="temperature" id="temperature">23</div>
+            <div class="unit" id="unit">°C</div>
           </div>
         </div>
       </main>
@@ -62,5 +69,6 @@
         >.
       </footer>
     </div>
+    <script src="src/app.js"></script>
   </body>
 </html>

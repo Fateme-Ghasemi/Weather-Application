@@ -88,7 +88,7 @@ function formatDate(date) {
   return [formattedDay, hours, minutes];
 }
 
-apiCitySearch("Paris");
+apiCitySearch("Tehran");
 
 let searchFormElement = document.querySelector("#search-form");
 console.log(searchFormElement);

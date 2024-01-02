@@ -1,5 +1,10 @@
 function nameFormat(name) {
-  name = name[0].toUpperCase() + name.slice(1).toLowerCase();
+  let nameArray = name.split(/[, ]+/);
+  name = "";
+  for (let x in nameArray) {
+    name +=
+      nameArray[x][0].toUpperCase() + nameArray[x].slice(1).toLowerCase() + " ";
+  }
   return name;
 }
 
@@ -24,6 +29,17 @@ function showTemperature(response) {
   let icon_url = response.data.condition.icon_url;
   let currentIconValue = document.querySelector("#icon");
   currentIconValue.innerHTML = `<img src="${icon_url}" />`;
+
+  let currentDayELement = document.querySelector("#day");
+  let currentHourELement = document.querySelector("#hours");
+  let currentMinuteELement = document.querySelector("#minutes");
+  let currentDate = new Date(response.data.time * 1000);
+
+  dateArray = formatDate(currentDate);
+
+  currentDayELement.innerHTML = dateArray[0];
+  currentHourELement.innerHTML = dateArray[1];
+  currentMinuteELement.innerHTML = dateArray[2];
 }
 
 function apiCitySearch(searchInputElement) {
@@ -77,14 +93,3 @@ apiCitySearch("Paris");
 let searchFormElement = document.querySelector("#search-form");
 console.log(searchFormElement);
 searchFormElement.addEventListener("submit", search);
-
-let currentDayELement = document.querySelector("#day");
-let currentHourELement = document.querySelector("#hours");
-let currentMinuteELement = document.querySelector("#minutes");
-let currentDate = new Date();
-
-dateArray = formatDate(currentDate);
-
-currentDayELement.innerHTML = dateArray[0];
-currentHourELement.innerHTML = dateArray[1];
-currentMinuteELement.innerHTML = dateArray[2];

@@ -118,15 +118,21 @@ header {
   margin-top: 20px;
 }
 
-.weather-forecast {
+.wf {
   margin-top: 20px;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .date {
   font-size: 20px;
   color: #25303f;
   opacity: 0.9;
+}
+
+.wficon {
+  font-size: 35px;
 }
 
 .fts {

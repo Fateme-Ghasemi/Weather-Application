@@ -88,8 +88,29 @@ function formatDate(date) {
   return [formattedDay, hours, minutes];
 }
 
+function displayForecast() {
+  let days2 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = ``;
+
+  days2.forEach(function (day) {
+    forecastHtml += `
+    <div class="wfday">
+        <div class="date">${day}</div>
+        <div class="wficon">🌤️</div>
+        <div class="fts">
+          <span class="fts-max">18°</span>
+          <span class="fts-min">10°</span>
+        </div>
+    </div>`;
+  });
+  let forecast = document.querySelector("#wf");
+  forecast.innerHTML = forecastHtml;
+}
+
 apiCitySearch("Tehran");
 
 let searchFormElement = document.querySelector("#search-form");
 console.log(searchFormElement);
 searchFormElement.addEventListener("submit", search);
+
+displayForecast();

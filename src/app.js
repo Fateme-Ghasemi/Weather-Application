@@ -10,7 +10,6 @@ function nameFormat(name) {
 
 function showTemperature(response) {
   let temperature = `${Math.round(response.data.temperature.current)}`;
-  console.log(response.data.temperature.humidity);
   let currentTemperatureValue = document.querySelector("#temperature");
   currentTemperatureValue.innerHTML = `${temperature}`;
 
@@ -59,6 +58,7 @@ function search(event) {
   searchInputElement = nameFormat(searchInputElement.value);
 
   apiCitySearch(searchInputElement);
+  getForecast(searchInputElement);
 }
 
 function formatDate(date) {
@@ -88,29 +88,38 @@ function formatDate(date) {
   return [formattedDay, hours, minutes];
 }
 
-function displayForecast() {
-  let days2 = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function getForecast(city) {
+  let apiKeyF = "2a4389463db3f2o08de3be18t5087eaa";
+  let unitF = "metric";
+  let apiUrlF = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKeyF}&units=${unitF}`;
+
+  axios(apiUrlF).then(displayForecast);
+}
+
+function displayForecast(response) {
   let forecastHtml = ``;
 
-  days2.forEach(function (day) {
-    forecastHtml += `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6) {
+      let toDay = new Date(day.time * 1000);
+      let everyDay = formatDate(toDay);
+      forecastHtml += `
     <div class="wfday">
-        <div class="date">${day}</div>
-        <div class="wficon">🌤️</div>
+        <div class="date">${everyDay[0].slice(0, 3)}</div>
+        <img src="${day.condition.icon_url}" class="wficon" />
         <div class="fts">
-          <span class="fts-max">18°</span>
-          <span class="fts-min">10°</span>
+          <span class="fts-max">${Math.round(day.temperature.maximum)}°</span>
+          <span class="fts-min">${Math.round(day.temperature.minimum)}°</span>
         </div>
     </div>`;
+    }
   });
   let forecast = document.querySelector("#wf");
   forecast.innerHTML = forecastHtml;
 }
 
 apiCitySearch("Tehran");
-
 let searchFormElement = document.querySelector("#search-form");
-console.log(searchFormElement);
 searchFormElement.addEventListener("submit", search);
 
-displayForecast();
+getForecast("Tehran");

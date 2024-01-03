@@ -132,7 +132,10 @@ header {
 }
 
 .wficon {
-  font-size: 35px;
+  width: 88px;
+  height: 88px;
+  display: block;
+  margin: 0 auto;
 }
 
 .fts {
